@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FavoriteComponent } from './favorite/favorite.component';
 
 @Component({
   selector: 'app-root',
@@ -7,13 +6,9 @@ import { FavoriteComponent } from './favorite/favorite.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-  tweet = {
+  tweet = { 
     body: '...',
-    likesCount: 0,
+    likesCount: 10,
     isLiked: true
   }
-
-  courses = [1,2];
 }
-
