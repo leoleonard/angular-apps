@@ -14,11 +14,10 @@ export class UsernameValidators {
             setTimeout(() => {
                 if (control.value === 'mosh') {
                     resolve({ shouldBeUnique: true });
-                }
-                else {
+                } else {
                     resolve(null);
                 }
-            }, 2000);
+            }, 1000);
         });
     }
 }

@@ -30,6 +30,7 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { GithubProfileComponent } from './github-profile/github-profile.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { TimeRangeComponent } from './time-range/time-range.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HomeComponent,
     GithubProfileComponent,
     NotFoundComponent,
+    TimeRangeComponent,
   ],
   imports: [
     BrowserModule,
