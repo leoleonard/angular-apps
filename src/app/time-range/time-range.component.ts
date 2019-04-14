@@ -1,32 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
+import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
+import {UsernameValidators} from './username.validators';
+
 
 @Component({
   selector: 'app-time-range',
   templateUrl: './time-range.component.html',
   styleUrls: ['./time-range.component.css']
 })
-export class TimeRangeComponent implements OnInit {
 
-  constructor() { }
+export class TimeRangeComponent {
+  form = new FormGroup({
+    username: new FormControl('',
+      [Validators.required,
+        UsernameValidators.containNoSpace,
+        UsernameValidators.shouldBeUnique
+      ]),
+    password: new FormControl('', Validators.required),
+  });
 
-  ngOnInit() {
+  login() {
+    this.form.setErrors({
+      invalidLogin: true
+    });
   }
 
-
-  Date.daysBetween = function( date1, date2 ) {
-    //Get 1 day in milliseconds
-    var oneDay=1000*60*60*24;
-
-    // Convert both dates to milliseconds
-    var date1_ms = date1.getTime();
-    var date2_ms = date2.getTime();
-
-    // Calculate the difference in milliseconds
-    var difference_ms = date2_ms - date1_ms;
-
-    // Convert back to days and return
-    return Math.round(difference_ms/oneDay);
+  get username() {
+    return this.form.get('username');
   }
 
+  get password() {
+    return this.form.get('password');
+  }
 
 }
