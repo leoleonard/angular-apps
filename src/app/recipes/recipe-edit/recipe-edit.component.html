@@ -37,18 +37,35 @@
           <label for="desc">Description</label>
           <textarea class="form-control" id="desc" formControlName="desc" rows="6"></textarea>
         </div>
-        <div class="col-xs-12">
-          <div class="row">
+        <div class="col-xs-12" formArrayName="ingredients">
+          <div class="row"
+               *ngFor="let ingredientCtrl of getControls(); let i = index;"
+               [formGroupName]="i"
+          >
             <div class="col-xs-8">
-              <input type="text" class="form-control">
+              <input type="text"
+                     formControlName="name"
+                     class="form-control">
             </div>
             <div class="col-xs-2">
-              <input type="number" class="form-control">
+              <input type="number" formControlName="amount" class="form-control">
             </div>
             <div class="col-xs-2">
               <button class="btn btn-danger btn-no-margin">X</button>
             </div>
           </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <button
+                type="button"
+                class="btn btn-success"
+                (click)="onAddIngredient()"
+              >Add ingredient
+              </button>
+            </div>
+          </div>
+
         </div>
       </div>
     </form>
