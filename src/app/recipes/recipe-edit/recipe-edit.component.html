@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-xs-12">
     <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+
       <div class="row">
         <div class="col-xs12">
           <button
@@ -10,13 +11,14 @@
           >Save
           </button>
           <button
-                  (click)="onCancel()"
-                  type="button"
-                  class="btn btn-danger"
+            (click)="onCancel()"
+            type="button"
+            class="btn btn-danger"
           >Cancel
           </button>
         </div>
       </div>
+
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
@@ -28,6 +30,7 @@
               class="form-control">
           </div>
         </div>
+
         <div class="col-xs-12">
           <div class="form-group">
             <label for="imagePath">Image URL</label>
@@ -35,16 +38,20 @@
               type="text"
               id="ImagePath"
               formControlName="imagePath"
-              class="form-control">
+              class="form-control"
+              #imagePath>
           </div>
         </div>
+
         <div class="col-xs-12">
-          <img src="" alt="image" class="img-responsive">
+          <img [src]="imagePath.value" alt="image" class="img-responsive">
         </div>
+
         <div class="col-xs-12">
           <label for="description">Description</label>
           <textarea class="form-control" id="description" formControlName="description" rows="6"></textarea>
         </div>
+
         <div class="col-xs-12" formArrayName="ingredients">
           <div class="row"
                *ngFor="let ingredientCtrl of getControls(); let i = index;"
