@@ -9,7 +9,11 @@
             [disabled]="!recipeForm.valid"
           >Save
           </button>
-          <button type="button" class="btn btn-danger">Cancel
+          <button
+                  (click)="onCancel()"
+                  type="button"
+                  class="btn btn-danger"
+          >Cancel
           </button>
         </div>
       </div>
