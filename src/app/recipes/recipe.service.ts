@@ -8,27 +8,28 @@ import {Subject} from 'rxjs';
 export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
 
-  private recipes: Recipe[] = [
-    new Recipe(
-      'first recipe',
-      'it is the very first one',
-      'https://fitfoodiefinds.com/wp-content/uploads/2015/10/classic-oatmeal.png',
-      [
-        new Ingredient('Meat', 1),
-        new Ingredient('Fries', 12),
-        new Ingredient('Mayo', 1),
-      ]
-      ),
-    new Recipe(
-      'second recipe',
-      'it is second recipe',
-      'https://www.seriouseats.com/recipes/images/2015/05/Anova-Steak-Guide-Sous-Vide-Photos15-beauty.jpg',
-      [
-        new Ingredient('Bread', 2),
-        new Ingredient('Butter', 1),
-      ]
-      ),
-  ];
+  private recipes: Recipe[] = [];
+  // private recipes: Recipe[] = [
+  //   new Recipe(
+  //     'first recipe',
+  //     'it is the very first one',
+  //     'https://fitfoodiefinds.com/wp-content/uploads/2015/10/classic-oatmeal.png',
+  //     [
+  //       new Ingredient('Meat', 1),
+  //       new Ingredient('Fries', 12),
+  //       new Ingredient('Mayo', 1),
+  //     ]
+  //     ),
+  //   new Recipe(
+  //     'second recipe',
+  //     'it is second recipe',
+  //     'https://www.seriouseats.com/recipes/images/2015/05/Anova-Steak-Guide-Sous-Vide-Photos15-beauty.jpg',
+  //     [
+  //       new Ingredient('Bread', 2),
+  //       new Ingredient('Butter', 1),
+  //     ]
+  //     ),
+  // ];
 
   constructor (private slService: ShoppingListService) {}
 
