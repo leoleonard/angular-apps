@@ -67,12 +67,7 @@ export class AuthService {
 
   private handleAuthentication(email: string, userId: string, token: string, expiresIn: number) {
     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
-    const user = new User(
-      email,
-      userId,
-      token,
-      expirationDate
-    );
+    const user = new User(email, userId, token, expirationDate);
     this.user.next(user);
   }
 
@@ -94,4 +89,5 @@ export class AuthService {
     }
     return throwError(errorMessage);
   }
+
 }
